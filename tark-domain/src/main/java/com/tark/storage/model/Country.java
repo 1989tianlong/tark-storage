@@ -1,7 +1,6 @@
 package com.tark.storage.model;
 
 import com.tark.storage.common.base.BaseEntity;
-
 import javax.persistence.*;
 
 public class Country extends BaseEntity {
@@ -56,7 +55,7 @@ public class Country extends BaseEntity {
      * @param countryname 名称
      */
     public void setCountryname(String countryname) {
-        this.countryname = countryname;
+        this.countryname = countryname == null ? null : countryname.trim();
     }
 
     /**
@@ -74,6 +73,6 @@ public class Country extends BaseEntity {
      * @param countrycode 代码
      */
     public void setCountrycode(String countrycode) {
-        this.countrycode = countrycode;
+        this.countrycode = countrycode == null ? null : countrycode.trim();
     }
 }

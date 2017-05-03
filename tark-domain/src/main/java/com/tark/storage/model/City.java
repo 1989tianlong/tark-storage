@@ -1,8 +1,9 @@
 package com.tark.storage.model;
 
+import com.tark.storage.common.base.BaseEntity;
 import javax.persistence.*;
 
-public class City {
+public class City extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,7 +37,7 @@ public class City {
      * @param name
      */
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     /**
@@ -50,6 +51,6 @@ public class City {
      * @param state
      */
     public void setState(String state) {
-        this.state = state;
+        this.state = state == null ? null : state.trim();
     }
 }

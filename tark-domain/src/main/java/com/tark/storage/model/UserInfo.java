@@ -1,9 +1,10 @@
 package com.tark.storage.model;
 
+import com.tark.storage.common.base.BaseEntity;
 import javax.persistence.*;
 
 @Table(name = "user_info")
-public class UserInfo {
+public class UserInfo extends BaseEntity {
     @Id
     @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +33,8 @@ public class UserInfo {
     /**
      * 真实姓名
      */
-    private String realname;
+    @Column(name = "real_name")
+    private String realName;
 
     /**
      * QQ
@@ -75,7 +77,7 @@ public class UserInfo {
      * @param username 用户名
      */
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username == null ? null : username.trim();
     }
 
     /**
@@ -93,7 +95,7 @@ public class UserInfo {
      * @param password 密码
      */
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password == null ? null : password.trim();
     }
 
     /**
@@ -111,7 +113,7 @@ public class UserInfo {
      * @param usertype 用户类型
      */
     public void setUsertype(String usertype) {
-        this.usertype = usertype;
+        this.usertype = usertype == null ? null : usertype.trim();
     }
 
     /**
@@ -135,19 +137,19 @@ public class UserInfo {
     /**
      * 获取真实姓名
      *
-     * @return realname - 真实姓名
+     * @return real_name - 真实姓名
      */
-    public String getRealname() {
-        return realname;
+    public String getRealName() {
+        return realName;
     }
 
     /**
      * 设置真实姓名
      *
-     * @param realname 真实姓名
+     * @param realName 真实姓名
      */
-    public void setRealname(String realname) {
-        this.realname = realname;
+    public void setRealName(String realName) {
+        this.realName = realName == null ? null : realName.trim();
     }
 
     /**
@@ -165,7 +167,7 @@ public class UserInfo {
      * @param qq QQ
      */
     public void setQq(String qq) {
-        this.qq = qq;
+        this.qq = qq == null ? null : qq.trim();
     }
 
     /**
@@ -179,7 +181,7 @@ public class UserInfo {
      * @param email
      */
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email == null ? null : email.trim();
     }
 
     /**
@@ -197,6 +199,6 @@ public class UserInfo {
      * @param tel 联系电话
      */
     public void setTel(String tel) {
-        this.tel = tel;
+        this.tel = tel == null ? null : tel.trim();
     }
 }
