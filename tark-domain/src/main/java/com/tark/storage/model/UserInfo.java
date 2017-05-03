@@ -10,27 +10,27 @@ public class UserInfo {
     private Integer id;
 
     /**
-     * ÓÃ»§Ãû
+     * ç”¨æˆ·å
      */
     private String username;
 
     /**
-     * ÃÜÂë
+     * å¯†ç 
      */
     private String password;
 
     /**
-     * ÓÃ»§ÀàĞÍ
+     * ç”¨æˆ·ç±»å‹
      */
     private String usertype;
 
     /**
-     * ÊÇ·ñ¿ÉÓÃ
+     * æ˜¯å¦å¯ç”¨
      */
     private Integer enabled;
 
     /**
-     * ÕæÊµĞÕÃû
+     * çœŸå®å§“å
      */
     private String realname;
 
@@ -42,7 +42,7 @@ public class UserInfo {
     private String email;
 
     /**
-     * ÁªÏµµç»°
+     * è”ç³»ç”µè¯
      */
     private String tel;
 
@@ -61,97 +61,97 @@ public class UserInfo {
     }
 
     /**
-     * »ñÈ¡ÓÃ»§Ãû
+     * è·å–ç”¨æˆ·å
      *
-     * @return username - ÓÃ»§Ãû
+     * @return username - ç”¨æˆ·å
      */
     public String getUsername() {
         return username;
     }
 
     /**
-     * ÉèÖÃÓÃ»§Ãû
+     * è®¾ç½®ç”¨æˆ·å
      *
-     * @param username ÓÃ»§Ãû
+     * @param username ç”¨æˆ·å
      */
     public void setUsername(String username) {
         this.username = username;
     }
 
     /**
-     * »ñÈ¡ÃÜÂë
+     * è·å–å¯†ç 
      *
-     * @return password - ÃÜÂë
+     * @return password - å¯†ç 
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * ÉèÖÃÃÜÂë
+     * è®¾ç½®å¯†ç 
      *
-     * @param password ÃÜÂë
+     * @param password å¯†ç 
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     * »ñÈ¡ÓÃ»§ÀàĞÍ
+     * è·å–ç”¨æˆ·ç±»å‹
      *
-     * @return usertype - ÓÃ»§ÀàĞÍ
+     * @return usertype - ç”¨æˆ·ç±»å‹
      */
     public String getUsertype() {
         return usertype;
     }
 
     /**
-     * ÉèÖÃÓÃ»§ÀàĞÍ
+     * è®¾ç½®ç”¨æˆ·ç±»å‹
      *
-     * @param usertype ÓÃ»§ÀàĞÍ
+     * @param usertype ç”¨æˆ·ç±»å‹
      */
     public void setUsertype(String usertype) {
         this.usertype = usertype;
     }
 
     /**
-     * »ñÈ¡ÊÇ·ñ¿ÉÓÃ
+     * è·å–æ˜¯å¦å¯ç”¨
      *
-     * @return enabled - ÊÇ·ñ¿ÉÓÃ
+     * @return enabled - æ˜¯å¦å¯ç”¨
      */
     public Integer getEnabled() {
         return enabled;
     }
 
     /**
-     * ÉèÖÃÊÇ·ñ¿ÉÓÃ
+     * è®¾ç½®æ˜¯å¦å¯ç”¨
      *
-     * @param enabled ÊÇ·ñ¿ÉÓÃ
+     * @param enabled æ˜¯å¦å¯ç”¨
      */
     public void setEnabled(Integer enabled) {
         this.enabled = enabled;
     }
 
     /**
-     * »ñÈ¡ÕæÊµĞÕÃû
+     * è·å–çœŸå®å§“å
      *
-     * @return realname - ÕæÊµĞÕÃû
+     * @return realname - çœŸå®å§“å
      */
     public String getRealname() {
         return realname;
     }
 
     /**
-     * ÉèÖÃÕæÊµĞÕÃû
+     * è®¾ç½®çœŸå®å§“å
      *
-     * @param realname ÕæÊµĞÕÃû
+     * @param realname çœŸå®å§“å
      */
     public void setRealname(String realname) {
         this.realname = realname;
     }
 
     /**
-     * »ñÈ¡QQ
+     * è·å–QQ
      *
      * @return qq - QQ
      */
@@ -160,7 +160,7 @@ public class UserInfo {
     }
 
     /**
-     * ÉèÖÃQQ
+     * è®¾ç½®QQ
      *
      * @param qq QQ
      */
@@ -183,18 +183,18 @@ public class UserInfo {
     }
 
     /**
-     * »ñÈ¡ÁªÏµµç»°
+     * è·å–è”ç³»ç”µè¯
      *
-     * @return tel - ÁªÏµµç»°
+     * @return tel - è”ç³»ç”µè¯
      */
     public String getTel() {
         return tel;
     }
 
     /**
-     * ÉèÖÃÁªÏµµç»°
+     * è®¾ç½®è”ç³»ç”µè¯
      *
-     * @param tel ÁªÏµµç»°
+     * @param tel è”ç³»ç”µè¯
      */
     public void setTel(String tel) {
         this.tel = tel;

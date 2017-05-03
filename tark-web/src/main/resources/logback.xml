@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 这里面定义了 CONSOLE_LOG_PATTERN, FILE_LOG_PATTERN 等日志格式, 还定义了一些日志级别 -->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <!-- 命令行输出, 一般线上不用 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder  charset="UTF-8">
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <property name="LOG_FILE_NAME" value="tark-storage"/> <!-- 定义一个属性, 下面用 -->
+    <property name="catalina.base" value="."/>
+
+    <!-- 输出格式 appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/${LOG_FILE_NAME}.log</file>  <!-- 可自己定义 -->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern> <!-- 输出格式也可自己定义 -->
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/${LOG_FILE_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!-- error 日志 appender -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${catalina.base}/logs/${LOG_FILE_NAME}_error.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder  charset="UTF-8">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/${LOG_FILE_NAME}_error.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 定义日志级别, 也可在应用配置中指定 -->
+    <logger name="org.springframework.web" level="DEBUG"/>
+    <root level="ERROR">
+        <appender-ref ref="CONSOLE" /> <!-- 线上不需要输出到 CONSOLE -->
+        <appender-ref ref="FILE" />
+        <appender-ref ref="ERROR_FILE" />
+    </root>
+</configuration>

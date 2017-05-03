@@ -3,6 +3,8 @@ package com.tark.storage.web;
 import com.github.pagehelper.PageInfo;
 import com.tark.storage.model.Country;
 import com.tark.storage.service.CountryService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,11 +22,14 @@ import java.util.List;
 @RequestMapping("/countries")
 public class CountryController {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private CountryService countryService;
 
     @RequestMapping
     public ModelAndView getAll(Country country) {
+        logger.debug("get all contries...............................");
         ModelAndView result = new ModelAndView("index");
         List<Country> countryList = countryService.getAll(country);
         result.addObject("pageInfo", new PageInfo<Country>(countryList));
