@@ -2,6 +2,7 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "mybatis-generator-config_1_0.dtd" >
 
 <generatorConfiguration>
+    <!-- 引入配置文件 -->
     <properties resource="application.properties"/>
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
@@ -12,34 +13,40 @@
             <property name="mappers" value="com.tark.storage.common.mybatis.MyMapper"/>
         </plugin>
 
-        <!-- 阻止生成自动注释 -->
+        <!-- 注释产生配置 -->
         <commentGenerator>
             <property name="javaFileEncoding" value="UTF-8"/>
             <property name="suppressAllComments" value="true" />
             <property name="suppressDate" value="true"/>
         </commentGenerator>
 
+        <!-- 生成DAO的类文件路径配置 -->
         <jdbcConnection driverClass="${druid.driver-class}"
                         connectionURL="${druid.url}"
                         userId="${druid.username}"
                         password="${druid.password}">
         </jdbcConnection>
 
+        <!-- 生成Model对象路径配置 -->
         <javaModelGenerator targetPackage="com.tark.storage.model" targetProject="../tark-domain/src/main/java"/>
 
+        <!-- 生成sqlXML文件路径配置 -->
         <sqlMapGenerator targetPackage="mapper" targetProject="../tark-dao/src/main/resources"/>
 
+        <!-- 生成DAO的类文件路径配置 -->
         <javaClientGenerator targetPackage="com.tark.storage.mapper" targetProject="../tark-dao/src/main/java"
                              type="XMLMAPPER"/>
 
+
+        <!--要生成哪些表 -->
+        <!--<table tableName="t_user" domainObjectName="User" />-->
+        <!--<table tableName="t_news" domainObjectName="News" />-->
         <table tableName="%">
             <!--mysql 配置-->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
-
         <!--<table tableName="country" domainObjectName="Country" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" >-->
             <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         <!--</table>-->
-
     </context>
 </generatorConfiguration>
