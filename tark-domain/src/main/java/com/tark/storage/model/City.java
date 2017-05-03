@@ -1,6 +1,6 @@
 package com.tark.storage.model;
 
-import com.tark.storage.common.base.BaseEntity;
+import com.tark.storage.common.mybatis.BaseEntity;
 import javax.persistence.*;
 
 public class City extends BaseEntity {

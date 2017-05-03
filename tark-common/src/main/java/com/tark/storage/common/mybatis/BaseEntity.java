@@ -1,4 +1,4 @@
-package com.tark.storage.common.base;
+package com.tark.storage.common.mybatis;
 
 import javax.persistence.*;
 
