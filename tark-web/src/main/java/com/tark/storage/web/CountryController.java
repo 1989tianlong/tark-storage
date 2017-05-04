@@ -30,9 +30,6 @@ public class CountryController {
 
     @RequestMapping
     public ModelAndView getAll(Country country) {
-        if(true) {
-            throw  new BusinessException("test");
-        }
         logger.debug("get all contries...............................");
         ModelAndView result = new ModelAndView("index");
         List<Country> countryList = countryService.getAll(country);

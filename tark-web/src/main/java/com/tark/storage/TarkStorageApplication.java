@@ -14,9 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * Created by jh on 2017/5/2.
  */
-@EnableWebMvc
 @SpringBootApplication
-@EnableRedisHttpSession
 @MapperScan(basePackages = "com.tark.storage.mapper")
 public class TarkStorageApplication extends WebMvcConfigurerAdapter {
 
