@@ -14,6 +14,8 @@
         <module>tark-dao</module>
         <module>tark-service</module>
         <module>tark-web</module>
+        <module>tark-security</module>
+        <module>tark-redis</module>
     </modules>
 
     <parent>

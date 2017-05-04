@@ -15,4 +15,9 @@
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="tel" jdbcType="VARCHAR" property="tel" />
   </resultMap>
+
+  <select id="selectUserByName" resultType="UserInfo">
+    select * from user_info where username = #{username}
+  </select>
+
 </mapper>

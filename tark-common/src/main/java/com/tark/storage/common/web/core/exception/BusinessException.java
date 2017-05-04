@@ -8,23 +8,23 @@ public class BusinessException extends RuntimeException {
 
     private static final long serialVersionUID = -1114219045834565634L;
 
-    private String status = "400";
+    private int status = 400;
 
     public BusinessException(String message) {
-        this(message, "400");
+        this(message, 400);
     }
 
-    public BusinessException(String message, String status) {
+    public BusinessException(String message, int status) {
         super(message);
         this.status = status;
     }
 
-    public BusinessException(String message, Throwable cause, String status) {
+    public BusinessException(String message, Throwable cause, int status) {
         super(message, cause);
         this.status = status;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 }

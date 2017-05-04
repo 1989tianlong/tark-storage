@@ -8,14 +8,14 @@ public class AuthorizeForbiddenException extends BusinessException {
     private static final long serialVersionUID = 3572963710301459860L;
 
     public AuthorizeForbiddenException(String message) {
-        this(message, "403");
+        this(message, 403);
     }
 
-    public AuthorizeForbiddenException(String message, String status) {
+    public AuthorizeForbiddenException(String message, int status) {
         super(message, status);
     }
 
-    public AuthorizeForbiddenException(String message, Throwable cause, String status) {
+    public AuthorizeForbiddenException(String message, Throwable cause, int status) {
         super(message, cause, status);
     }
 }

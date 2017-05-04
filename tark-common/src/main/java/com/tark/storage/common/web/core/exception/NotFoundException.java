@@ -5,6 +5,6 @@ package com.tark.storage.common.web.core.exception;
  */
 public class NotFoundException extends BusinessException {
     public NotFoundException(String message) {
-        super(message, "404");
+        super(message, 404);
     }
 }

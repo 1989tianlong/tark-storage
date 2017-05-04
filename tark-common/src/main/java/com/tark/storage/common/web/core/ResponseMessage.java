@@ -31,7 +31,7 @@ public class ResponseMessage implements Serializable {
     /**
      * 响应码
      */
-    private String code;
+    private int code;
 
 
     /**
@@ -60,18 +60,18 @@ public class ResponseMessage implements Serializable {
     }
 
     protected ResponseMessage(String message) {
-        this.code = "500";
+        this.code = 500;
         this.message = message;
         this.success = false;
     }
 
     protected ResponseMessage(boolean success, Object data) {
-        this.code = success ? "200" : "500";
+        this.code = success ? 200 : 500;
         this.data = data;
         this.success = success;
     }
 
-    protected ResponseMessage(boolean success, Object data, String code) {
+    protected ResponseMessage(boolean success, Object data, int code) {
         this(success, data);
         this.code = code;
     }
@@ -189,11 +189,11 @@ public class ResponseMessage implements Serializable {
         return JSON.toJSONStringWithDateFormat(this, DateTimeUtils.YEAR_MONTH_DAY_HOUR_MINUTE_SECOND);
     }
 
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public ResponseMessage setCode(String code) {
+    public ResponseMessage setCode(int code) {
         this.code = code;
         return this;
     }
@@ -249,14 +249,18 @@ public class ResponseMessage implements Serializable {
     }
 
     public static ResponseMessage created(Object data) {
-        return new ResponseMessage(true, data, "201");
+        return new ResponseMessage(true, data, 201);
     }
 
     public static ResponseMessage error(String message) {
         return new ResponseMessage(message);
     }
 
-    public static ResponseMessage error(String message, String code) {
+    public static ResponseMessage error(String message, int code) {
         return new ResponseMessage(message).setCode(code);
+    }
+
+    public static ResponseMessage error(ResultStatus resultStatus) {
+        return new ResponseMessage(resultStatus.getMessage()).setCode(resultStatus.getCode());
     }
 }

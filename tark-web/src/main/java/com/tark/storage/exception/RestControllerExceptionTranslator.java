@@ -22,7 +22,7 @@ public class RestControllerExceptionTranslator {
     @ExceptionHandler(BusinessException.class)
     @ResponseBody
     ResponseMessage handleException(BusinessException exception, HttpServletResponse response) {
-        response.setStatus(Integer.parseInt(exception.getStatus()));
+        response.setStatus(exception.getStatus());
         if (exception.getCause() != null) {
             logger.error("{}:{}", exception.getMessage(), exception.getStatus(), exception.getCause());
         }
@@ -48,7 +48,7 @@ public class RestControllerExceptionTranslator {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
     ResponseMessage handleException(NotFoundException exception) {
-        return ResponseMessage.error(exception.getMessage(), "404");
+        return ResponseMessage.error(exception.getMessage(), 404);
     }
 
     @ExceptionHandler(Throwable.class)
@@ -56,7 +56,7 @@ public class RestControllerExceptionTranslator {
     @ResponseBody
     ResponseMessage handleException(Throwable exception) {
         logger.error("未知错误", exception);
-        return ResponseMessage.error(exception.getMessage(), "500");
+        return ResponseMessage.error(exception.getMessage(), 500);
     }
 
 }

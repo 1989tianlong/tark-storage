@@ -8,14 +8,14 @@ public class AuthorizeException extends BusinessException {
     private static final long serialVersionUID = 4617997445985132549L;
 
     public AuthorizeException(String message) {
-        this(message, "401");
+        this(message, 401);
     }
 
-    public AuthorizeException(String message, String status) {
+    public AuthorizeException(String message, int status) {
         super(message, status);
     }
 
-    public AuthorizeException(String message, Throwable cause, String status) {
+    public AuthorizeException(String message, Throwable cause, int status) {
         super(message, cause, status);
     }
 }
