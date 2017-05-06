@@ -4,13 +4,13 @@ import com.github.pagehelper.PageInfo;
 import com.tark.storage.common.web.core.exception.BusinessException;
 import com.tark.storage.model.Country;
 import com.tark.storage.service.CountryService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -19,6 +19,7 @@ import java.util.List;
 /**
  * Created by jh on 2017/5/2.
  */
+@Api(value = "Mybatis 使用试例",description="一个简单的 Mybatis 使用试例")
 @Controller
 @RequestMapping("/countries")
 public class CountryController {
@@ -28,7 +29,8 @@ public class CountryController {
     @Autowired
     private CountryService countryService;
 
-    @RequestMapping
+    @ApiOperation("获取所有国家")
+    @GetMapping
     public ModelAndView getAll(Country country) {
         logger.debug("get all contries...............................");
         ModelAndView result = new ModelAndView("index");
@@ -41,14 +43,16 @@ public class CountryController {
         return result;
     }
 
-    @RequestMapping(value = "/add")
+    @ApiOperation("添加国家")
+    @PostMapping(value = "/add")
     public ModelAndView add() {
         ModelAndView result = new ModelAndView("view");
         result.addObject("country", new Country());
         return result;
     }
 
-    @RequestMapping(value = "/view/{id}")
+    @ApiOperation("查看国家")
+    @GetMapping(value = "/view/{id}")
     public ModelAndView view(@PathVariable Integer id) {
         ModelAndView result = new ModelAndView("view");
         Country country = countryService.getById(id);
@@ -56,7 +60,8 @@ public class CountryController {
         return result;
     }
 
-    @RequestMapping(value = "/delete/{id}")
+    @ApiOperation("删除国家")
+    @DeleteMapping(value = "/delete/{id}")
     public ModelAndView delete(@PathVariable Integer id, RedirectAttributes ra) {
         ModelAndView result = new ModelAndView("redirect:/countries");
         countryService.deleteById(id);
@@ -64,7 +69,8 @@ public class CountryController {
         return result;
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @ApiOperation("更新国家")
+    @PostMapping(value = "/save")
     public ModelAndView save(Country country) {
         ModelAndView result = new ModelAndView("view");
         String msg = country.getId() == null ? "新增成功!" : "更新成功!";

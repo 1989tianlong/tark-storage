@@ -5,8 +5,8 @@
 </head>
 <body>
 <p>Url:${absPath!""}</p>
-<p>Status:${code}</p>
+<p>Status:${code!""}</p>
 <p>Error Message:${message!""}</p>
-<p>Exception:${exception}</p>
+<p>Exception:${exception!""}</p>
 </body>
 </html>
